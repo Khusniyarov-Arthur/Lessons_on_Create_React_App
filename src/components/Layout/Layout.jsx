@@ -8,3 +8,10 @@ export const Layout = ({children}) => {
 Layout.propTypes = {
   children: PropTypes.node,
 };
+// Layout.propTypes = {
+//   children: PropTypes.oneOfType([
+//     PropTypes.string,
+//     PropTypes.object,
+//     PropTypes.array,
+//   ]),
+// };
