@@ -23,7 +23,6 @@
 }
 
 .linkAuthor { 
-  color: #cc6633;
   position: relative;
   overflow: hidden;
   -webkit-line-clamp: 2;
@@ -34,9 +33,9 @@
 }
 
 @media (min-width: 580px) {
-  .linkPost {
+  /* .linkPost {
     font-size: 26px;
-  }
+  } */
   .linkPost:hover {
     color: #cc6633;
   }
@@ -56,8 +55,8 @@
   }
 }
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
   .linkPost {
     font-size: 32px;
   }
-}
+} */

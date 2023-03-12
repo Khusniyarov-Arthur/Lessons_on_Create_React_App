@@ -5,13 +5,13 @@ export const Layout = ({children}) => {
   return <div className={style.container}>{children}</div>;
 };
 
-Layout.propTypes = {
-  children: PropTypes.node,
-};
 // Layout.propTypes = {
-//   children: PropTypes.oneOfType([
-//     PropTypes.string,
-//     PropTypes.object,
-//     PropTypes.array,
-//   ]),
+//   children: PropTypes.node,
 // };
+Layout.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object,
+    PropTypes.array,
+  ]),
+};
