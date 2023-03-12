@@ -10,7 +10,7 @@ export const PostContent = ({content}) => {
   // деструктурирую данный полученный пропс, чтобы из него взять данные и передать в описание компонента
   return (
     // возврощаем содержимое компонента
-    <div className={style.content}>
+    <Text As='div' className={style.content}>
       {/* блоку который содержит содержимое поста присваевается клласс */}
       <Text As='h2' className={style.title}>
         {/* заголовку поста присваевается класс */}
@@ -34,7 +34,7 @@ export const PostContent = ({content}) => {
         {author}
         {/* в тег а заносится author из пропса content  */}
       </Text>
-    </div>
+    </Text>
   );
 };
 
