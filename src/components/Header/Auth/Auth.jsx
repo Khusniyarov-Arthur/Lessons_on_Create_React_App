@@ -6,8 +6,10 @@ import {Text} from '../../../UI/Text';
 import {useEffect, useState} from 'react';
 import {URL_API} from '../../../api/const';
 
-export const Auth = ({token}) => {
+export const Auth = ({token, delToken}) => {
   const [auth, setAuth] = useState({});
+  const [logout, setLogout] = useState(true);
+  const [status, setStatus] = useState('');
 
   useEffect(() => {
     console.log('useEffect');
@@ -18,12 +20,14 @@ export const Auth = ({token}) => {
       headers: {
         Authorization: `bearer ${token}`,
       },
-    }).then((response) => response.json())
-      .then(({name, icon_img: iconImg}) => {
+    }).then((response) => {
+      setStatus(response.status);
+      console.log(response.status);
+      return response.json();
+    })
+      .then(({name, icon_img: iconImg, id}) => {
         const img = iconImg.replace(/\?.*$/, '');
         setAuth({name, img});
-        console.log('img: ', img);
-        console.log('name: ', name);
       })
       .catch(err => {
         console.err(err);
@@ -31,14 +35,21 @@ export const Auth = ({token}) => {
       });
   }, [token]);
 
+  useEffect(() => {
+    if (status === 401) {
+      delToken();
+    }
+  });
+
   return (
     <div className={style.container} >
       {auth.name ?
       (<>
-        <button className={style.btn}>
+        <Text As='button' onClick={() => setLogout(!logout)} className={style.btn}>
           <img className={style.img} src={auth.img} title={auth.name} alt={`Аватар ${auth.name}`} />
-        </button>
-        <Text>{auth.name}</Text>
+        </Text>
+        {logout ? (<Text size={12} className={style.authName}>{auth.name}</Text>) :
+        (<Text As='button' onClick={delToken} color={'white'} className={style.logout}>Выйти</Text>)}
       </>
       ) : (
         <Text className={style.authLink} As='a' href={urlAuth}>
@@ -51,4 +62,5 @@ export const Auth = ({token}) => {
 
 Auth.propTypes = {
   token: PropTypes.string,
+  delToken: PropTypes.func,
 };
