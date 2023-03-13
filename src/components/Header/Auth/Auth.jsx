@@ -12,9 +12,7 @@ export const Auth = ({token, delToken}) => {
   const [status, setStatus] = useState('');
 
   useEffect(() => {
-    console.log('useEffect');
     if (!token) return;
-    console.log('use');
 
     fetch(`${URL_API}/api/v1/me`, {
       headers: {
