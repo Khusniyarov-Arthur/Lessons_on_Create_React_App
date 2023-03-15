@@ -18,7 +18,7 @@ export const useAuth = () => {
       console.log(response.status);
       return response.json();
     })
-      .then(({name, icon_img: iconImg, id}) => {
+      .then(({name, icon_img: iconImg}) => {
         const img = iconImg.replace(/\?.*$/, '');
         setAuth({name, img});
       })
