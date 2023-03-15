@@ -23,4 +23,3 @@ export const usePosts = () => {
   }, [token]);
   return [posts];
 };
-
