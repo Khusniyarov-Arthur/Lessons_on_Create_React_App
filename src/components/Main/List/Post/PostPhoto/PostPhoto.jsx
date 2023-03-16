@@ -2,12 +2,12 @@ import style from './PostPhoto.module.css';
 import PropTypes from 'prop-types';
 import notphoto from './img/notphoto.jpg';
 
-export const PostPhoto = ({titelPhoto}) => {
+export const PostPhoto = ({thumbnail}) => {
   return (
-    <img className={style.img} src={notphoto} alt={titelPhoto} />
+    <img className={style.img} src={(thumbnail.substring(0, 4) === 'http') ? thumbnail : notphoto} alt={thumbnail} />
   );
 };
 
 PostPhoto.propTypes = {
-  titelPhoto: PropTypes.string,
+  thumbnail: PropTypes.string,
 };

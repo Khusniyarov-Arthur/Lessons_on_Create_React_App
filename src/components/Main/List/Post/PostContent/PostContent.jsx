@@ -1,27 +1,22 @@
 import style from './PostContent.module.css';
-// импортируем стили в наш компонент
 import PropTypes from 'prop-types';
-// ипортируем PropTypes в наш компонент
 import {Text} from '../../../../../UI/Text';
+import {useState} from 'react';
+import Modal from '../../../../Modal';
 
-export const PostContent = ({content}) => {
-  // описвыаю компонент, он принимает в виде пропса массив
+export const PostContent = ({content, markdown}) => {
   const [title, author] = content;
-  // деструктурирую данный полученный пропс, чтобы из него взять данные и передать в описание компонента
+  const [isModalOpen, setIsModalOpen] = useState(false);
   return (
-    // возврощаем содержимое компонента
     <Text As='div' className={style.content}>
-      {/* блоку который содержит содержимое поста присваевается клласс */}
       <Text As='h2' className={style.title}>
-        {/* заголовку поста присваевается класс */}
         <Text As='a'
           size={14}
           tsize={14}
           className={style.linkPost}
-          href='#post'>
-          {/* ссылке поста присваевается класс и задается якорь post*/}
+          href='#post'
+          onClick={() => setIsModalOpen(true)}>
           {title}
-          {/* в тег а заносится title из пропса content  */}
         </Text>
       </Text>
       <Text As='a'
@@ -30,15 +25,15 @@ export const PostContent = ({content}) => {
         color='orange'
         className={style.linkAuthor}
         href='#author'>
-        {/* ссылке поста присваевается класс и задается якорь author*/}
         {author}
-        {/* в тег а заносится author из пропса content  */}
       </Text>
+      {isModalOpen && <Modal markdown={markdown} title={title} author={author} />}
     </Text>
   );
 };
 
 PostContent.propTypes = {
   content: PropTypes.array,
+  markdown: PropTypes.string,
 };
 // проверяем тип полученного пропса, в данном случае мы в просп принимаем массив
