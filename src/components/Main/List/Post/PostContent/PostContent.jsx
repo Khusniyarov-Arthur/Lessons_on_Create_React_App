@@ -27,7 +27,16 @@ export const PostContent = ({content, markdown}) => {
         href='#author'>
         {author}
       </Text>
-      {isModalOpen && <Modal markdown={markdown} title={title} author={author} />}
+      {isModalOpen && (
+        <Modal
+          markdown={markdown}
+          title={title}
+          author={author}
+          closeModal={() => {
+            setIsModalOpen(false);
+          }}
+        />
+      )}
     </Text>
   );
 };
