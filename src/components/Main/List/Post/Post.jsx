@@ -8,6 +8,7 @@ import {PostDelete} from './PostDelete/PostDelete';
 
 export const Post = ({postData}) => {
   const {
+    id,
     thumbnail,
     ups,
     title,
@@ -19,7 +20,7 @@ export const Post = ({postData}) => {
   return (
     <li className={style.post}>
       <PostPhoto thumbnail={thumbnail} />
-      <PostContent content={[title, author]} markdown={markdown} />
+      <PostContent content={[title, author]} markdown={markdown} id={id} />
       <PostRating ups={ups} />
       <PostDate date={created} />
       <PostDelete />

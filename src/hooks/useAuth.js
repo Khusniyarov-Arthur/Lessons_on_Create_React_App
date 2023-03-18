@@ -15,7 +15,6 @@ export const useAuth = () => {
       },
     }).then((response) => {
       setStatus(response.status);
-      console.log(response.status);
       return response.json();
     })
       .then(({name, icon_img: iconImg}) => {

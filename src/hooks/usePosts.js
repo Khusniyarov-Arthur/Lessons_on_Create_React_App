@@ -8,14 +8,18 @@ export const usePosts = () => {
 
   useEffect(() => {
     if (!token) return;
-    fetch(`${URL_API}/best?limit=10`, {
+    fetch(`${URL_API}/best?limit=35`, {
       headers: {
         Authorization: `bearer ${token}`,
       },
     }).then((response) => {
       return response.json();
     })
-      .then((posts) => setPosts(posts.data.children))
+      .then((posts) => {
+        return (
+          setPosts(posts.data.children)
+        );
+      })
       .catch(err => {
         console.error(err);
         setPosts([]);

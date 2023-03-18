@@ -4,7 +4,7 @@ import {Text} from '../../../../../UI/Text';
 import {useState} from 'react';
 import Modal from '../../../../Modal';
 
-export const PostContent = ({content, markdown}) => {
+export const PostContent = ({content, markdown, id}) => {
   const [title, author] = content;
   const [isModalOpen, setIsModalOpen] = useState(false);
   return (
@@ -32,6 +32,7 @@ export const PostContent = ({content, markdown}) => {
           markdown={markdown}
           title={title}
           author={author}
+          id={id}
           closeModal={() => {
             setIsModalOpen(false);
           }}
@@ -44,5 +45,6 @@ export const PostContent = ({content, markdown}) => {
 PostContent.propTypes = {
   content: PropTypes.array,
   markdown: PropTypes.string,
+  id: PropTypes.string,
 };
 // проверяем тип полученного пропса, в данном случае мы в просп принимаем массив
