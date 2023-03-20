@@ -1,16 +1,15 @@
 import style from './FormComment.module.css';
 import {Text} from '../../../UI/Text';
-import {useEffect, useRef, useState} from 'react';
+import {useEffect, useState} from 'react';
 import {useAuth} from '../../../hooks/useAuth';
 export const FormComment = () => {
-  const textareaRef = useRef(null);
-  const [textareaText, setTextareaText] = useState('Введите сообщение');
+  const [textareaText, setTextareaText] = useState('');
   const {auth} = useAuth();
+  const [addComment, setAddComment] = useState(false);
 
   const inputComment = e => {
     setTextareaText(e.target.value);
   };
-  const [addComment, setAddComment] = useState(false);
 
   useEffect(() => {
     document.addEventListener('input', inputComment);
@@ -25,7 +24,12 @@ export const FormComment = () => {
 
       {addComment && <Text As='form' className={style.form}>
         <Text As='h3' size={14} tsize={18} >{auth.name}</Text>
-        <textarea ref={textareaRef} className={style.textarea}></textarea>
+        <textarea
+          value={textareaText}
+          className={style.textarea}
+          onChange={inputComment}
+          autoFocus
+        ></textarea>
         <Text As='button'
           onClick={() => {
             console.log(textareaText);
