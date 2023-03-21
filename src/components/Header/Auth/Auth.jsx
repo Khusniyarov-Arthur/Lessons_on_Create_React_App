@@ -5,19 +5,31 @@ import {urlAuth} from '../../../api/auth';
 import {Text} from '../../../UI/Text';
 import {useEffect, useState, useContext} from 'react';
 import {useAuth} from '../../../hooks/useAuth';
-import {tokenContext} from '../../../context/tokenContext';
+// import {tokenContext} from '../../../context/tokenContext';
 import {authContext} from '../../../context/authContext';
+import {useDispatch} from 'react-redux';
+import {deleteToken, updateToken} from '../../../store';
+
 
 export const Auth = () => {
-  const {delToken} = useContext(tokenContext);
+  // const {delToken} = useContext(tokenContext);
   const {status} = useAuth();
   const [logout, setLogout] = useState(true);
   const {auth, clearAuth} = useContext(authContext);
+  const dispatch = useDispatch();
+
+
   useEffect(() => {
     if (status === 401) {
-      delToken();
+      dispatch(deleteToken());
     }
   });
+
+  useEffect(() => {
+    if (localStorage.getItem('bearer')) {
+      dispatch(updateToken(localStorage.getItem('bearer')));
+    }
+  }, []);
 
   return (
     <div className={style.container} >
@@ -30,7 +42,7 @@ export const Auth = () => {
         (<Text As='button'
           onClick={
             () => {
-              delToken();
+              dispatch(deleteToken());
               clearAuth();
             }
           } color={'white'} className={style.logout}>Выйти</Text>)}

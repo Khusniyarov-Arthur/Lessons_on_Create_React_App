@@ -1,11 +1,14 @@
-import {useEffect, useState, useContext} from 'react';
+import {useEffect, useState} from 'react';
 import {URL_API} from '../api/const';
-import {tokenContext} from '../context/tokenContext';
+// import {tokenContext} from '../context/tokenContext';
+import {useSelector} from 'react-redux';
+
 
 export const useAuth = () => {
   const [auth, setAuth] = useState({});
   const [status, setStatus] = useState('');
-  const {token} = useContext(tokenContext);
+  // const {token} = useContext(tokenContext);
+  const token = useSelector(state => state.token);
 
   useEffect(() => {
     if (!token) return;

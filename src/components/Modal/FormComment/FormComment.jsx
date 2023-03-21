@@ -2,13 +2,17 @@ import style from './FormComment.module.css';
 import {Text} from '../../../UI/Text';
 import {useEffect, useState} from 'react';
 import {useAuth} from '../../../hooks/useAuth';
+import {useDispatch, useSelector} from 'react-redux';
+import {updateComment} from '../../../store';
 export const FormComment = () => {
-  const [textareaText, setTextareaText] = useState('');
+  const textareaText = useSelector(state => state.comment);
+  const dispatch = useDispatch();
+
   const {auth} = useAuth();
   const [addComment, setAddComment] = useState(false);
 
   const inputComment = e => {
-    setTextareaText(e.target.value);
+    dispatch(updateComment(e.target.value));
   };
 
   useEffect(() => {
