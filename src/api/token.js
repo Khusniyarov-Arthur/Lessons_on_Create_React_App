@@ -1,8 +1,8 @@
 
 
-export const deleteToken = () => {
-  localStorage.removeItem('bearer');
-};
+// export const deleteToken = () => {
+//   localStorage.removeItem('bearer');
+// };
 
 export const setToken = (token) => {
   localStorage.setItem('bearer', token);

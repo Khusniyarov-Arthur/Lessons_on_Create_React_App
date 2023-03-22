@@ -1,17 +1,20 @@
 import {useEffect, useState} from 'react';
 import {URL_API} from '../api/const';
 // import {tokenContext} from '../context/tokenContext';
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
+import {authRequest, authRequestError, authRequestSuccess} from '../store/auth/action';
 
 
 export const useAuth = () => {
   const [auth, setAuth] = useState({});
   const [status, setStatus] = useState('');
   // const {token} = useContext(tokenContext);
-  const token = useSelector(state => state.token);
+  const token = useSelector(state => state.tokenReducer.token);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (!token) return;
+    dispatch(authRequest());
     fetch(`${URL_API}/api/v1/me`, {
       headers: {
         Authorization: `bearer ${token}`,
@@ -22,11 +25,14 @@ export const useAuth = () => {
     })
       .then(({name, icon_img: iconImg}) => {
         const img = iconImg.replace(/\?.*$/, '');
-        setAuth({name, img});
+        const data = {name, img};
+        setAuth(data);
+        dispatch(authRequestSuccess(data));
       })
       .catch(err => {
-        console.err(err);
+        console.error(err);
         setAuth({});
+        dispatch(authRequestError(err));
       });
   }, [token]);
   const clearAuth = () => setAuth({});
@@ -34,3 +40,4 @@ export const useAuth = () => {
   return {auth, status, clearAuth};
 };
 
+// 10 MIN

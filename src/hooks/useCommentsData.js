@@ -4,7 +4,7 @@ import {URL_API} from '../api/const';
 import {useSelector} from 'react-redux';
 
 export const useCommentsData = ({id}) => {
-  const token = useSelector(state => state.token);
+  const token = useSelector(state => state.tokenReducer.token);
 
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);

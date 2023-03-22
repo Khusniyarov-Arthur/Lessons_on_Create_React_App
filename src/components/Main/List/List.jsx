@@ -6,6 +6,7 @@ import {Text} from '../../../UI/Text';
 
 export const List = () => {
   const [posts] = useContext(postsContext);
+  console.log(posts);
   return (
     <>
       {(posts.length === 0) && <Text center As='h3'>Загрузка данных...</Text>}

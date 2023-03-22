@@ -3,9 +3,10 @@ import {Text} from '../../../UI/Text';
 import {useEffect, useState} from 'react';
 import {useAuth} from '../../../hooks/useAuth';
 import {useDispatch, useSelector} from 'react-redux';
-import {updateComment} from '../../../store';
+import {updateComment} from '../../../store/commentReducer';
+
 export const FormComment = () => {
-  const textareaText = useSelector(state => state.comment);
+  const textareaText = useSelector(state => state.commentReducer.comment);
   const dispatch = useDispatch();
 
   const {auth} = useAuth();
@@ -35,7 +36,8 @@ export const FormComment = () => {
           autoFocus
         ></textarea>
         <Text As='button'
-          onClick={() => {
+          onClick={(e) => {
+            e.preventDefault();
             console.log(textareaText);
           }} className={style.btn}>Отправить
         </Text>

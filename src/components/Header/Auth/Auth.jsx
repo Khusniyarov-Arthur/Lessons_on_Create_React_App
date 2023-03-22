@@ -8,8 +8,8 @@ import {useAuth} from '../../../hooks/useAuth';
 // import {tokenContext} from '../../../context/tokenContext';
 import {authContext} from '../../../context/authContext';
 import {useDispatch} from 'react-redux';
-import {deleteToken, updateToken} from '../../../store';
-
+import {deleteToken} from '../../../store/tokenReducer';
+import {updateToken} from '../../../store/tokenReducer';
 
 export const Auth = () => {
   // const {delToken} = useContext(tokenContext);
@@ -41,7 +41,8 @@ export const Auth = () => {
         {logout ? (<Text size={12} className={style.authName}>{auth.name}</Text>) :
         (<Text As='button'
           onClick={
-            () => {
+            (e) => {
+              e.preventDefault();
               dispatch(deleteToken());
               clearAuth();
             }
