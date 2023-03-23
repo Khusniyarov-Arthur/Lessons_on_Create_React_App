@@ -6,12 +6,13 @@ const initialState = {
   error: '',
 };
 
-export const authReduser = (state = initialState, action) => {
+export const authReducer = (state = initialState, action) => {
   switch (action.type) {
     case AUTH_REQUEST:
       return {
         ...state,
         loading: true,
+        error: '',
       };
     case AUTH_REQUEST_SUCCESS:
       return {

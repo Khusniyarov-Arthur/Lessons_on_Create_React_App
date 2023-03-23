@@ -5,14 +5,12 @@ import {urlAuth} from '../../../api/auth';
 import {Text} from '../../../UI/Text';
 import {useEffect, useState} from 'react';
 import {useAuth} from '../../../hooks/useAuth';
-// import {tokenContext} from '../../../context/tokenContext';
 import {useDispatch} from 'react-redux';
 import {deleteToken} from '../../../store/tokenReducer';
 import {updateToken} from '../../../store/tokenReducer';
 import {AuthLoader} from './AuthLoader/AuthLoader';
 
 export const Auth = () => {
-  // const {delToken} = useContext(tokenContext);
   const {status} = useAuth();
   const [logout, setLogout] = useState(true);
   const {auth, loading, clearAuth} = useAuth();

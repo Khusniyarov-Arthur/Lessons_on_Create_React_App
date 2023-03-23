@@ -4,11 +4,11 @@ import {useSelector, useDispatch} from 'react-redux';
 import {authLogout, authRequestAsing} from '../store/auth/action';
 
 export const useAuth = () => {
-  const auth = useSelector(state => state.authReduser.data);
+  const auth = useSelector(state => state.authReducer.data);
   // const [auth, setAuth] = useState({});
   // const [status, setStatus] = useState('');********
   // const {token} = useContext(tokenContext);
-  const loading = useSelector(state => state.authReduser.loading);
+  const loading = useSelector(state => state.authReducer.loading);
   const token = useSelector(state => state.tokenReducer.token);
   const dispatch = useDispatch();
 
@@ -43,6 +43,6 @@ export const useAuth = () => {
     dispatch(authRequestAsing());
   }, [token]);
   const clearAuth = () => dispatch(authLogout());
-  console.log(status);
+  // console.log(status);
   return {auth, loading, clearAuth};
 };
