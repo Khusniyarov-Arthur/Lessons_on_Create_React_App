@@ -7,7 +7,7 @@ import {postRequestAsing} from '../store/post/postAction';
 export const usePosts = () => {
   // const [posts, setPosts] = useState([]);
   const token = useSelector(state => state.tokenReducer.token);
-  const posts = useSelector(state => state.postReducer);
+  const posts = useSelector(state => state.postReducer.data);
   console.log(posts);
   const dispatch = useDispatch();
   useEffect(() => {

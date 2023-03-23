@@ -1,16 +1,10 @@
 import style from './List.module.css';
 import Post from './Post';
-// import {useContext} from 'react';
-// import {postsContext} from '../../../context/postsContext';
 import {Text} from '../../../UI/Text';
-import {useSelector} from 'react-redux';
+import {usePosts} from '../../../hooks/usePosts';
 
 export const List = () => {
-  // const [posts] = useContext(postsContext);
-  const posts = useSelector(state => state.postReducer.data);
-
-  console.log(posts);
-  console.log(posts.length);
+  const [posts] = usePosts();
 
   return (
     <>

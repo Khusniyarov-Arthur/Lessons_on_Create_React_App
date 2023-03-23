@@ -11,15 +11,16 @@ import {FormComment} from './FormComment/FormComment';
 import {Text} from '../../UI/Text';
 
 export const Modal = ({closeModal, id}) => {
-  const {commentsData, error, isLoaded} = useCommentsData({id});
+  const {commentsData, status, dataPost, error} = useCommentsData({id});
 
   const {
     authorData,
     titleData,
     selftextData,
-    lengthComments,
-    commentMessageData,
-  } = commentsData;
+    // lengthComments,
+    // commentMessageData,
+  } = dataPost;
+  console.log(status);
 
   const overlayRef = useRef(null);
 
@@ -41,17 +42,21 @@ export const Modal = ({closeModal, id}) => {
       document.removeEventListener('keydown', handleClick);
     };
   }, []);
+  // if (status === 'error') {
+  //   return <div>Ошибка: {error.message}</div>;
+  // }
 
-  if (error) {
-    return <div>Ошибка: {error.message}</div>;
-  } else if (!isLoaded) {
-    return <div>Загрузка...</div>;
-  } else {
-    return ReactDOM.createPortal(
-      <div className={style.overlay} ref={overlayRef}>
-        <div className={style.modal}>
+  // if (status === 'loading') {
+  //   return <div>Загрузка...</div>;
+  // }
+
+  return ReactDOM.createPortal(
+    <div className={style.overlay} ref={overlayRef}>
+      <div className={style.modal}>
+        {status === 'error' && <div>{error.message}</div>}
+        {status === 'loading' && <div>Загрузка...</div>}
+        {status === 'loaded' && <>
           <h2 className={style.title}>{titleData}</h2>
-
           <div className={style.content}>
             <Markdown options={{
               overrides: {
@@ -67,10 +72,10 @@ export const Modal = ({closeModal, id}) => {
           </div>
           <p className={style.author}>{authorData}</p>
           <FormComment />
-          {(lengthComments > 0) && (commentMessageData.map((item) => (
+          {(commentsData.length > 0) && (commentsData.map((item) => (
             <Comments key={item.id} messageData={item} />
           )))}
-          {(lengthComments === 0) &&
+          {(commentsData.length === 0) &&
           <Text center As='h3'>Нет комментариев</Text>
           }
           <button className={style.close}
@@ -78,11 +83,11 @@ export const Modal = ({closeModal, id}) => {
           >
             <CloseIcon />
           </button>
-        </div>
-      </div>,
-      document.getElementById('modal-root'),
-    );
-  }
+        </>}
+      </div>
+    </div>,
+    document.getElementById('modal-root'),
+  );
 };
 
 

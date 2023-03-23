@@ -24,6 +24,7 @@ export const postRequestError = (error) => ({
 export const postRequestAsing = () => (dispatch, getState) => {
   const token = getState().tokenReducer.token;
   if (!token) return;
+  dispatch(postRequest());
   axios(`${URL_API}/best?limit=35`, {
     headers: {
       Authorization: `bearer ${token}`,
@@ -35,7 +36,7 @@ export const postRequestAsing = () => (dispatch, getState) => {
     })
     .then((posts) => {
       return (
-        dispatch(postRequestSuccess(posts.data.data.children))
+        dispatch(postRequestSuccess((posts.data.data.children)))
       );
     })
     .catch(err => {
