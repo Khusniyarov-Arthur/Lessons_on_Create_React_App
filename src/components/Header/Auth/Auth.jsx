@@ -8,7 +8,7 @@ import {useAuth} from '../../../hooks/useAuth';
 import {useDispatch} from 'react-redux';
 import {deleteToken} from '../../../store/tokenReducer';
 import {updateToken} from '../../../store/tokenReducer';
-import {AuthLoader} from './AuthLoader/AuthLoader';
+import {AuthLoader} from '../../../UI/Loader/authLoader';
 
 export const Auth = () => {
   const {status} = useAuth();

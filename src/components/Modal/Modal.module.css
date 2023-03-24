@@ -17,6 +17,15 @@
   margin-bottom: 10px;
 }
 
+.load {
+  position: relative;
+  top: 0;
+  /* left: 45%; */
+  /* margin: auto; */
+  font-size: 34 px;
+
+}
+
 .title {
   margin-bottom: 30px;
   padding-right: 50px;

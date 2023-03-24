@@ -9,6 +9,7 @@ import {useCommentsData} from '../../hooks/useCommentsData';
 import {Comments} from './Comments/Comments';
 import {FormComment} from './FormComment/FormComment';
 import {Text} from '../../UI/Text';
+import {ModalLoader} from '../../UI/Loader/modalLoader';
 
 export const Modal = ({closeModal, id}) => {
   const {commentsData, status, dataPost, error} = useCommentsData({id});
@@ -53,8 +54,12 @@ export const Modal = ({closeModal, id}) => {
   return ReactDOM.createPortal(
     <div className={style.overlay} ref={overlayRef}>
       <div className={style.modal}>
-        {status === 'error' && <div>{error.message}</div>}
-        {status === 'loading' && <div>Загрузка...</div>}
+        {status === 'error' && <div>{error}</div>}
+        {status === 'loading' &&
+            <Text As='div' className={style.load}>
+              <Text As='h2' center>Загрузка</Text>
+              <ModalLoader />
+            </Text>}
         {status === 'loaded' && <>
           <h2 className={style.title}>{titleData}</h2>
           <div className={style.content}>
