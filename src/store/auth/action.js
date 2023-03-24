@@ -39,18 +39,19 @@ export const authRequestAsing = () => (dispatch, getState) => {
     //   setStatus(response.status);
     //   return response.json();
     // })
-    .then((data) => {
-      // setStatus(data.status);
-      return data;
-    })
+    // .then((data) => {
+    //   console.log(data.status);
+    //   return data;
+    // })
     .then(({data: {name, icon_img: iconImg}}) => {
       const img = iconImg.replace(/\?.*$/, '');
       const data = {name, img};
       dispatch(authRequestSuccess(data));
     })
     .catch(err => {
-      // console.error(err);
+      // console.log(err.response.status);
+      const statusNum = err.response.status;
       // setStatus(err.response.status);
-      dispatch(authRequestError(err.toString()));
+      dispatch(authRequestError({err, statusNum}));
     });
 };

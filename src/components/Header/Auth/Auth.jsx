@@ -11,14 +11,12 @@ import {updateToken} from '../../../store/tokenReducer';
 import {AuthLoader} from '../../../UI/Loader/authLoader';
 
 export const Auth = () => {
-  const {status} = useAuth();
   const [logout, setLogout] = useState(true);
-  const {auth, loading, clearAuth} = useAuth();
+  const {auth, loading, clearAuth, error} = useAuth();
   const dispatch = useDispatch();
 
-
   useEffect(() => {
-    if (status === 401) {
+    if (error.statusNum === 401) {
       dispatch(deleteToken());
     }
   });

@@ -9,6 +9,7 @@ export const useAuth = () => {
   // const [status, setStatus] = useState('');********
   // const {token} = useContext(tokenContext);
   const loading = useSelector(state => state.authReducer.loading);
+  const error = useSelector(state => state.authReducer.error);
   const token = useSelector(state => state.tokenReducer.token);
   const dispatch = useDispatch();
 
@@ -43,6 +44,6 @@ export const useAuth = () => {
     dispatch(authRequestAsing());
   }, [token]);
   const clearAuth = () => dispatch(authLogout());
-  // console.log(status);
-  return {auth, loading, clearAuth};
+  // console.log((status.response.request));
+  return {auth, loading, clearAuth, error};
 };
