@@ -4,6 +4,7 @@ import {URL_API} from '../../api/const';
 
 export const POST_REQUEST = 'POST_REQUEST';
 export const POST_REQUEST_SUCCESS = 'POST_REQUEST_SUCCESS';
+export const POST_REQUEST_SUCCESS_AFTER = 'POST_REQUEST_SUCCESS_AFTER';
 export const POST_REQUEST_ERROR = 'POST_REQUEST_ERROR';
 
 export const postRequest = () => ({
@@ -12,7 +13,14 @@ export const postRequest = () => ({
 
 export const postRequestSuccess = (data) => ({
   type: POST_REQUEST_SUCCESS,
-  data,
+  data: data.data.data.children,
+  after: data.data.data.after
+});
+
+export const postRequestSuccessAfter = (data) => ({
+  type: POST_REQUEST_SUCCESS_AFTER,
+  data: data.data.data.children,
+  after: data.data.data.after
 });
 
 export const postRequestError = (error) => ({
@@ -23,9 +31,12 @@ export const postRequestError = (error) => ({
 
 export const postRequestAsing = () => (dispatch, getState) => {
   const token = getState().tokenReducer.token;
-  if (!token) return;
+  const after = getState().postReducer.after;
+  const loading = getState().postReducer.loading;
+  const isLast = getState().postReducer.isLast;
+  if (!token || loading || isLast) return;
   dispatch(postRequest());
-  axios(`${URL_API}/best?limit=35`, {
+  axios(`${URL_API}/best?limit=4&${after ? `after=${after}` : ''}`, {
     headers: {
       Authorization: `bearer ${token}`,
     },
@@ -34,9 +45,11 @@ export const postRequestAsing = () => (dispatch, getState) => {
       return posts;
     })
     .then((posts) => {
-      return (
-        dispatch(postRequestSuccess((posts.data.data.children)))
-      );
+      if (after) {
+        dispatch(postRequestSuccessAfter(posts));
+      } else {
+        dispatch(postRequestSuccess(posts));
+      }
     })
     .catch(err => {
       dispatch(postRequestError(err.toString()));
