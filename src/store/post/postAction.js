@@ -31,7 +31,6 @@ export const postRequestAsing = () => (dispatch, getState) => {
     },
   })
     .then((posts) => {
-      console.log('posts: ', posts);
       return posts;
     })
     .then((posts) => {

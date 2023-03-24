@@ -1,7 +1,5 @@
 import axios from 'axios';
 import {URL_API} from '../../api/const';
-// import {tokenReducer} from '../tokenReducer';
-
 
 export const AUTH_REQUEST = 'AUTH_REQUEST';
 export const AUTH_REQUEST_SUCCESS = 'AUTH_REQUEST_SUCCESS';
@@ -35,23 +33,13 @@ export const authRequestAsing = () => (dispatch, getState) => {
       Authorization: `bearer ${token}`,
     },
   })
-    // .then((response) => {
-    //   setStatus(response.status);
-    //   return response.json();
-    // })
-    // .then((data) => {
-    //   console.log(data.status);
-    //   return data;
-    // })
     .then(({data: {name, icon_img: iconImg}}) => {
       const img = iconImg.replace(/\?.*$/, '');
       const data = {name, img};
       dispatch(authRequestSuccess(data));
     })
     .catch(err => {
-      // console.log(err.response.status);
       const statusNum = err.response.status;
-      // setStatus(err.response.status);
       dispatch(authRequestError({err, statusNum}));
     });
 };

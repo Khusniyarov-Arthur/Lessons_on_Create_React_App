@@ -18,10 +18,7 @@ export const Modal = ({closeModal, id}) => {
     authorData,
     titleData,
     selftextData,
-    // lengthComments,
-    // commentMessageData,
   } = dataPost;
-  console.log(status);
 
   const overlayRef = useRef(null);
 
@@ -43,13 +40,6 @@ export const Modal = ({closeModal, id}) => {
       document.removeEventListener('keydown', handleClick);
     };
   }, []);
-  // if (status === 'error') {
-  //   return <div>Ошибка: {error.message}</div>;
-  // }
-
-  // if (status === 'loading') {
-  //   return <div>Загрузка...</div>;
-  // }
 
   return ReactDOM.createPortal(
     <div className={style.overlay} ref={overlayRef}>

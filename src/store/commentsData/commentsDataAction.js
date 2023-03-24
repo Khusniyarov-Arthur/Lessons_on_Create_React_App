@@ -30,7 +30,6 @@ export const commentsDataRequestAsing = (id) => (dispatch, getState) => {
     },
   })
     .then((posts) => {
-      console.log('posts: ', posts);
       return posts;
     })
     .then(({data:
@@ -58,8 +57,6 @@ export const commentsDataRequestAsing = (id) => (dispatch, getState) => {
       const dataComments = childrenData.map((item) => item.data);
       dataComments.splice(dataComments.length - 1, dataComments.length);
       const dataPost = {authorData, titleData, createdData, selftextData};
-      console.log(dataPost);
-      console.log(dataComments);
       return (
         dispatch(commentsDataRequestSuccess(dataComments, dataPost))
       );
