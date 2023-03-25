@@ -1,23 +1,25 @@
 import style from './PostContent.module.css';
 import PropTypes from 'prop-types';
 import {Text} from '../../../../../UI/Text';
-import {useState} from 'react';
-import Modal from '../../../../Modal';
+// import {useState} from 'react';
+// import Modal from '../../../../Modal';
+import {Link, useParams} from 'react-router-dom';
 
-export const PostContent = ({content, markdown, id}) => {
+// export const PostContent = ({content, markdown, id}) => {
+export const PostContent = ({content, id}) => {
   const [title, author] = content;
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  // const [isModalOpen, setIsModalOpen] = useState(false);
+  const {page} = useParams();
   return (
     <Text As='div' className={style.content}>
       <Text As='h2' className={style.title}>
-        <Text As='a'
-          size={14}
-          tsize={14}
-          className={style.linkPost}
-          href='#post'
-          onClick={() => setIsModalOpen(true)}>
-          {title}
-        </Text>
+        <Link className={style.linkPost} to={`/category/${page}/post.${id}`}>
+          <Text bold size={14} tsize={14} className={style.linkPost}
+            // onClick={() => setIsModalOpen(true)}
+          >
+            {title}
+          </Text>
+        </Link>
       </Text>
       <Text As='a'
         size={12}
@@ -27,7 +29,7 @@ export const PostContent = ({content, markdown, id}) => {
         href='#author'>
         {author}
       </Text>
-      {isModalOpen && (
+      {/* {isModalOpen && (
         <Modal
           markdown={markdown}
           title={title}
@@ -37,14 +39,14 @@ export const PostContent = ({content, markdown, id}) => {
             setIsModalOpen(false);
           }}
         />
-      )}
+      )} */}
     </Text>
   );
 };
 
 PostContent.propTypes = {
   content: PropTypes.array,
-  markdown: PropTypes.string,
+  // markdown: PropTypes.string,
   id: PropTypes.string,
 };
 // проверяем тип полученного пропса, в данном случае мы в просп принимаем массив

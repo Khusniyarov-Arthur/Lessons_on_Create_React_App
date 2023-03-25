@@ -10,10 +10,13 @@ import {Comments} from './Comments/Comments';
 import {FormComment} from './FormComment/FormComment';
 import {Text} from '../../UI/Text';
 import {ModalLoader} from '../../UI/Loader/modalLoader';
+import {useNavigate, useParams} from 'react-router-dom';
 
-export const Modal = ({closeModal, id}) => {
+// export const Modal = ({closeModal}) => {
+export const Modal = () => {
+  const {id, page} = useParams();
+  const navigate = useNavigate();
   const {commentsData, status, dataPost, error} = useCommentsData({id});
-
   const {
     authorData,
     titleData,
@@ -25,10 +28,11 @@ export const Modal = ({closeModal, id}) => {
   const handleClick = e => {
     const target = e.target;
     if (target === overlayRef.current) {
-      closeModal();
+      // closeModal();
+      navigate(`/category/${page}`);
     }
     if (e.keyCode === 27) {
-      closeModal();
+      // closeModal();
     }
   };
 
@@ -74,7 +78,8 @@ export const Modal = ({closeModal, id}) => {
           <Text center As='h3'>Нет комментариев</Text>
           }
           <button className={style.close}
-            onClick={() => closeModal()}
+            // onClick={() => closeModal()}
+            onClick={() => navigate(`/category/${page}`)}
           >
             <CloseIcon />
           </button>
