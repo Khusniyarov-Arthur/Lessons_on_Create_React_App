@@ -21,7 +21,7 @@ const LIST = [
 export const Tabs = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isDropdown, setIsDropdown] = useState(true);
-  const [itemBtn, setItemBtn] = useState('Навигация');
+  const [itemBtn, setItemBtn] = useState('Категории');
   const navigate = useNavigate();
 
   const handleResize = () => {

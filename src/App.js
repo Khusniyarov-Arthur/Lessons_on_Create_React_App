@@ -4,6 +4,7 @@ import {getToken} from './api/token';
 import {updateToken} from './store/tokenReducer';
 import {useDispatch} from 'react-redux';
 import {Route, Routes} from 'react-router-dom';
+// import {Error} from './components/Error/Error';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -14,9 +15,11 @@ const App = () => {
         <>
           <Header />
           <Main />
+          {/* <Error/> */}
         </>
-      }
-      />
+      }>
+        {/* <Route path='*' element={<Error/>}/> */}
+      </Route>
     </Routes>
   );
 };

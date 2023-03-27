@@ -4,6 +4,8 @@ import Tabs from './Tabs';
 import List from './List';
 import {Route, Routes} from 'react-router-dom';
 import Modal from '../Modal';
+import {Home} from '../Home/Home';
+import {Error} from '../Error/Error';
 
 export const Main = () => (
   <main className={style.main}>
@@ -11,9 +13,10 @@ export const Main = () => (
       <Tabs />
       <Routes>
         <Route path='/category/:page' element={<List />}>
-          <Route path='post/:id' element={<Modal/>} />
+          <Route path='post/:id' element={<Modal/>}/>
         </Route>
-        {/* <Route/> */}
+        <Route path='/' element={<Home/>}/>
+        <Route path='*' element={<Error/>}/>
       </Routes>
     </Layout>
   </main>
