@@ -13,7 +13,7 @@ export const PostContent = ({content, id}) => {
   return (
     <Text As='div' className={style.content}>
       <Text As='h2' className={style.title}>
-        <Link className={style.linkPost} to={`/category/${page}/post.${id}`}>
+        <Link className={style.linkPost} to={`/category/${page}/post/${id}`}>
           <Text bold size={14} tsize={14} className={style.linkPost}
             // onClick={() => setIsModalOpen(true)}
           >

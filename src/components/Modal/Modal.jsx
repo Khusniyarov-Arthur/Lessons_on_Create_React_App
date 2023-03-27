@@ -33,6 +33,7 @@ export const Modal = () => {
     }
     if (e.keyCode === 27) {
       // closeModal();
+      navigate(`/category/${page}`);
     }
   };
 
@@ -89,7 +90,6 @@ export const Modal = () => {
     document.getElementById('modal-root'),
   );
 };
-
 
 Modal.propTypes = {
   title: PropTypes.string,
