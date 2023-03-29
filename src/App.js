@@ -1,20 +1,24 @@
 import Header from './components/Header';
 import Main from './components/Main';
-import {TokenContextProvider} from './context/tokenContext';
-import {AuthContextProvider} from './context/authContext';
-import {PostsContextProvider} from './context/postsContext';
+import {getToken} from './api/token';
+import {updateToken} from './store/tokenReducer';
+import {useDispatch} from 'react-redux';
+import {Route, Routes} from 'react-router-dom';
 
-function App() {
+const App = () => {
+  const dispatch = useDispatch();
+  dispatch(updateToken(getToken()));
   return (
-    <TokenContextProvider>
-      <AuthContextProvider>
-        <PostsContextProvider>
+    <Routes>
+      <Route path='*' element={
+        <>
           <Header />
           <Main />
-        </PostsContextProvider>
-      </AuthContextProvider>
-    </TokenContextProvider>
+        </>
+      }>
+      </Route>
+    </Routes>
   );
-}
+};
 
 export default App;

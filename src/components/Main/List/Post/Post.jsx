@@ -7,12 +7,20 @@ import {PostPhoto} from './PostPhoto/PostPhoto';
 import {PostDelete} from './PostDelete/PostDelete';
 
 export const Post = ({postData}) => {
-  const {ups, title, author, created} = postData;
+  const {
+    id,
+    thumbnail,
+    ups,
+    title,
+    author,
+    created,
+    selftext: markdown,
+  } = postData;
 
   return (
     <li className={style.post}>
-      <PostPhoto titelPhoto={title} />
-      <PostContent content={[title, author]} />
+      <PostPhoto thumbnail={thumbnail} />
+      <PostContent content={[title, author]} markdown={markdown} id={id} />
       <PostRating ups={ups} />
       <PostDate date={created} />
       <PostDelete />

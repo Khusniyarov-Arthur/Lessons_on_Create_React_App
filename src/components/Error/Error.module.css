@@ -1,0 +1,12 @@
+.error {
+  padding-top: 50px;
+  color: #cc6633;
+  font-size: 90px;
+  }
+
+  @media (max-width: 580px) {
+    .error {
+      padding-top: 25px;
+      font-size: 48px;
+      }
+  }
