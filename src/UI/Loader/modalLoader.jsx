@@ -5,7 +5,6 @@ export const ModalLoader = () => {
     <HashLoader
       color="#cc6633"
       size={150}
-
       cssOverride={{
         margin: '100px auto'
       }}

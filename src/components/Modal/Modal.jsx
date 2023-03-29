@@ -12,7 +12,6 @@ import {Text} from '../../UI/Text';
 import {ModalLoader} from '../../UI/Loader/modalLoader';
 import {useNavigate, useParams} from 'react-router-dom';
 
-// export const Modal = ({closeModal}) => {
 export const Modal = () => {
   const {id, page} = useParams();
   const navigate = useNavigate();
@@ -28,11 +27,9 @@ export const Modal = () => {
   const handleClick = e => {
     const target = e.target;
     if (target === overlayRef.current) {
-      // closeModal();
       navigate(`/category/${page}`);
     }
     if (e.keyCode === 27) {
-      // closeModal();
       navigate(`/category/${page}`);
     }
   };
@@ -79,7 +76,6 @@ export const Modal = () => {
           <Text center As='h3'>Нет комментариев</Text>
           }
           <button className={style.close}
-            // onClick={() => closeModal()}
             onClick={() => navigate(`/category/${page}`)}
           >
             <CloseIcon />
