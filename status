@@ -1,0 +1,221 @@
+[33mcommit f47f117bdedc9ed7dca674ee98026d9a0a6d2a42[m[33m ([m[1;36mHEAD -> [m[1;32mlesson-12[m[33m, [m[1;31morigin/dev[m[33m, [m[1;32mdev[m[33m)[m
+Author: Khusniyarov-Arthur <Khusniyarovaa@yandex.ru>
+Date:   Wed Mar 29 08:38:55 2023 +0300
+
+    lesson-11 Added start page and 404 error page
+
+[33mcommit 16ba1f2e9513048acf0968bf6dd8de812a9e56e8[m
+Author: Khusniyarov-Arthur <Khusniyarovaa@yandex.ru>
+Date:   Tue Mar 28 01:42:47 2023 +0300
+
+    lesson-11 intermediate check
+
+[33mcommit c5760ca83e7477d7ee3b8b9bbf061db35df52a4e[m
+Author: Khusniyarov-Arthur <Khusniyarovaa@yandex.ru>
+Date:   Mon Mar 27 19:03:04 2023 +0300
+
+    lesson-11 step-3 homework
+
+[33mcommit b30710076dc39de0a9fd3cb567a7f3706b55efc6[m
+Author: Khusniyarov-Arthur <Khusniyarovaa@yandex.ru>
+Date:   Sat Mar 25 23:50:22 2023 +0300
+
+    lesson-11 step-2 does not work. To fix an error.
+
+[33mcommit 8be298799b0718a21ceeb13b912bbf6eaebbcdc7[m
+Author: Khusniyarov-Arthur <Khusniyarovaa@yandex.ru>
+Date:   Fri Mar 24 17:10:19 2023 +0300
+
+    lesson-11 step-1
+
+[33mcommit 1184a2ddd50e89abda31479108cc614f6592e6ef[m
+Author: Khusniyarov-Arthur <Khusniyarovaa@yandex.ru>
+Date:   Fri Mar 24 11:38:09 2023 +0300
+
+    lesson-10 asing request commentsData and posts
+
+[33mcommit 06211bfdb8163ba4fc1797670fe24081f77f98d6[m
+Author: Khusniyarov-Arthur <Khusniyarovaa@yandex.ru>
+Date:   Fri Mar 24 11:28:01 2023 +0300
+
+    lesson-10 before cleaning log ALL WORK
+
+[33mcommit 8b9cfd713f03fa27794f758c040f45ecba65a42f[m
+Author: Khusniyarov-Arthur <Khusniyarovaa@yandex.ru>
+Date:   Fri Mar 24 09:06:51 2023 +0300
+
+    lesson-10 before cleaning log
+
+[33mcommit 430e97b6ae3ea50722df9d5067fc9506a91debe6[m
+Author: Khusniyarov-Arthur <Khusniyarovaa@yandex.ru>
+Date:   Fri Mar 24 00:51:03 2023 +0300
+
+    lesson-10 step-2
+
+[33mcommit a7c704b81a89a18e2b5c31515342c106985d23d5[m
+Author: Khusniyarov-Arthur <Khusniyarovaa@yandex.ru>
+Date:   Thu Mar 23 20:44:24 2023 +0300
+
+    lesson-10 step-1
+
+[33mcommit fa679e980434bc0117b07d6a3496a521609d9acf[m
+Author: Khusniyarov-Arthur <Khusniyarovaa@yandex.ru>
+Date:   Wed Mar 22 22:56:24 2023 +0300
+
+    lesson-10
+
+[33mcommit 36cdc1f12ded75a9ec85a6e7144ab6b379e2ef60[m
+Author: Khusniyarov-Arthur <Khusniyarovaa@yandex.ru>
+Date:   Wed Mar 22 19:47:44 2023 +0300
+
+    for fixsed bugs
+
+[33mcommit e71079ccfb313c40b9a9f5960bc375d720568d10[m
+Author: Khusniyarov-Arthur <Khusniyarovaa@yandex.ru>
+Date:   Tue Mar 21 11:29:43 2023 +0300
+
+    lesson-09 Add Redux
+
+[33mcommit f2b7dabc26899f98ec25bbb943703ce7f90b6f3a[m
+Author: Khusniyarov-Arthur <Khusniyarovaa@yandex.ru>
+Date:   Mon Mar 20 19:08:24 2023 +0300
+
+    lesson-08 Added rendering of comments and a component for sending messages. Additionally added a button to write a comment. FIXED BUGS ON tetxtarea.
+
+[33mcommit 1a09f1509ec330d13eeaaa8d6c44375860b10343[m
+Author: Khusniyarov-Arthur <Khusniyarovaa@yandex.ru>
+Date:   Sun Mar 19 01:32:58 2023 +0300
+
+    lesson-08 Added rendering of comments and a component for sending messages. Additionally added a button to write a comment.
+
+[33mcommit 295fa7b7e543765fc80940c99e6d729780f78c4d[m
+Author: Khusniyarov-Arthur <Khusniyarovaa@yandex.ru>
+Date:   Fri Mar 17 08:51:03 2023 +0300
+
+    lesson-08 step-1 v.2.0
+
+[33mcommit a3ed79d1e0833742f42a91d3343795b61ddcfb8c[m
+Author: Khusniyarov-Arthur <Khusniyarovaa@yandex.ru>
+Date:   Thu Mar 16 21:52:56 2023 +0300
+
+    lesson-08 step-1
+
+[33mcommit ce8a3bc1f1fb75f3f8879ff6fd067360e2434c5f[m
+Author: Khusniyarov-Arthur <Khusniyarovaa@yandex.ru>
+Date:   Thu Mar 16 01:00:24 2023 +0300
+
+    NEW branch: DEV. lesson-07 used the context for posts and pulled the best posts from the server
+
+[33mcommit e05f828126bbc896fa6abdb33fa284472a9f11d0[m
+Author: Khusniyarov-Arthur <Khusniyarovaa@yandex.ru>
+Date:   Thu Mar 16 00:45:45 2023 +0300
+
+    lesson-07 used the context for posts and pulled the best posts from the server
+
+[33mcommit ec7ca2d420757512a39d1e69262e68e2e87bf725[m
+Author: Khusniyarov-Arthur <Khusniyarovaa@yandex.ru>
+Date:   Wed Mar 15 08:27:48 2023 +0300
+
+    lesson-07 homework step 1
+
+[33mcommit 27ffda5ca9b37d657cc8b99bee11ba9f431c01cb[m
+Author: Khusniyarov-Arthur <Khusniyarovaa@yandex.ru>
+Date:   Tue Mar 14 22:05:59 2023 +0300
+
+    lesson-07 step-2
+
+[33mcommit 8a75ec6c989a3e6db8236566de34b8c4d43d3e2f[m
+Author: Khusniyarov-Arthur <Khusniyarovaa@yandex.ru>
+Date:   Tue Mar 14 16:57:51 2023 +0300
+
+    lesson-07 step-1
+
+[33mcommit d197fb4d44877a99dc9f3e33613463551f85b11c[m
+Author: Khusniyarov-Arthur <Khusniyarovaa@yandex.ru>
+Date:   Mon Mar 13 23:01:03 2023 +0300
+
+    lesson-06 Added button logout. When you click on the exit, LocalStorage is deleted, if the server returns a 401 status, clear the token in LocalStorage v.2.0
+
+[33mcommit e39ae7ff8a02a2b634cb063862f8d91d04d437ea[m
+Author: Khusniyarov-Arthur <Khusniyarovaa@yandex.ru>
+Date:   Mon Mar 13 22:57:05 2023 +0300
+
+    lesson-06 Added button logout. When you click on the exit, LocalStorage is deleted, if the server returns a 401 status, clear the token in LocalStorage
+
+[33mcommit 97b538f3950072e6d2bc85c6767de93371087aa7[m
+Author: Khusniyarov-Arthur <Khusniyarovaa@yandex.ru>
+Date:   Mon Mar 13 16:58:55 2023 +0300
+
+    intermediate commit
+
+[33mcommit e7c25a4bd9b48d3efb1e41f1e1eafca8a90bc2e5[m
+Author: Khusniyarov-Arthur <Khusniyarovaa@yandex.ru>
+Date:   Sun Mar 12 20:49:23 2023 +0300
+
+    lesson-05 Replaced the icons in the menu, implemented the menu selection, used the Text component in the components. ver-3.0
+
+[33mcommit 771ef02dfa34199c05d0073c621bd9efe51dd855[m
+Author: Khusniyarov-Arthur <Khusniyarovaa@yandex.ru>
+Date:   Sun Mar 12 18:27:57 2023 +0300
+
+    lesson-05 Replaced the icons in the menu, implemented the menu selection, used the Text component in the components. ver-2.0
+
+[33mcommit 36920555584e0fe947ad5b3fce402eb639f0ef0d[m
+Author: Khusniyarov-Arthur <Khusniyarovaa@yandex.ru>
+Date:   Sun Mar 12 18:00:41 2023 +0300
+
+    lesson-05 Replaced the icons in the menu, implemented the menu selection, used the Text component in the components.
+
+[33mcommit fb9f600276fd37d4b6e3d48f5ab45e988ada0276[m
+Author: Khusniyarov-Arthur <Khusniyarovaa@yandex.ru>
+Date:   Sat Mar 11 23:39:30 2023 +0300
+
+    lesson-05 done 50%, timing 24:24
+
+[33mcommit ef85ff2eb678fde8e8750a3f2175ecd82977aa82[m
+Author: Khusniyarov-Arthur <Khusniyarovaa@yandex.ru>
+Date:   Sat Mar 11 16:35:15 2023 +0300
+
+    lesson-04 added a Post component and decomposed it into smaller PostPhoto, PostContent, PostRating, PostDate, PostDelete components ---fexsed bugs v.1.0
+
+[33mcommit cbbd8fed3a1c5ca742eda5fcbeef666cf2423231[m
+Author: Khusniyarov-Arthur <Khusniyarovaa@yandex.ru>
+Date:   Sat Mar 11 16:19:33 2023 +0300
+
+    lesson-04 added a Post component and decomposed it into smaller PostPhoto, PostContent, PostRating, PostDate, PostDelete components
+
+[33mcommit ef3b16da6d1077f5bb3d5ca38c943f8758dec3c1[m
+Author: Khusniyarov-Arthur <Khusniyarovaa@yandex.ru>
+Date:   Thu Mar 9 19:19:44 2023 +0300
+
+    lesson-03 fixsed bugs
+
+[33mcommit 76fa34566aad101c61ce1ddd76e07fa41acaed88[m
+Author: Khusniyarov-Arthur <Khusniyarovaa@yandex.ru>
+Date:   Thu Mar 9 18:46:30 2023 +0300
+
+    lesson-03 corrected Layout.propTypes : NODE
+
+[33mcommit 8c8bf9b6f415906ffd5a1d421a5296a7d1039fcb[m
+Author: Khusniyarov-Arthur <Khusniyarovaa@yandex.ru>
+Date:   Thu Mar 9 16:23:44 2023 +0300
+
+    lesson-03 corrected Layout.propTypes and extracted eslint from gitignore
+
+[33mcommit 24935cb505a5b8c8fbc20a8290a123e1cb52d30a[m
+Author: Khusniyarov-Arthur <Khusniyarovaa@yandex.ru>
+Date:   Wed Mar 8 21:59:21 2023 +0300
+
+    lesson-03 add propTypes and set up eslint
+
+[33mcommit af3db2310222c06620a74303db75986fe0bfffc7[m
+Author: Khusniyarov-Arthur <Khusniyarovaa@yandex.ru>
+Date:   Mon Mar 6 18:33:31 2023 +0300
+
+    lesson-02 create modules Header and Main
+
+[33mcommit 01db7b224e13d71029e7f2bba51255141c43f74e[m
+Author: Khusniyarov-Arthur <Khusniyarovaa@yandex.ru>
+Date:   Sun Mar 5 17:39:37 2023 +0300
+
+    lesson-01 init dlogget

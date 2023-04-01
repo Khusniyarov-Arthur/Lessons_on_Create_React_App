@@ -1,67 +1,102 @@
+import {createAsyncThunk} from '@reduxjs/toolkit';
 import axios from 'axios';
 import {URL_API} from '../../api/const';
+// import {commentsSlice} from './commentsSlice';
 
-export const COMMENTS_DATA_REQUEST = 'COMMENTS_DATA_REQUEST';
-export const COMMENTS_DATA_SUCCESS = 'COMMENTS_DATA_SUCCESS';
-export const COMMENTS_DATA_ERROR = 'COMMENTS_DATA_ERROR';
 
-export const commentsDataRequest = () => ({
-  type: COMMENTS_DATA_REQUEST,
-});
+// export const commentsDataRequestAsing2 = (id) => (dispatch, getState) => {
+//   const token = getState().tokenReducer.token;
+//   if (!token) return;
+//   dispatch(commentsSlice.actions.commentsDataRequest());
+//   axios(`${URL_API}/comme9nts/${id}`, {
+//     headers: {
+//       Authorization: `bearer ${token}`,
+//     },
+//   })
+//     .then((posts) => {
+//       return posts;
+//     })
+//     .then(({data:
+//       [
+//         {
+//           data: {
+//             children: [
+//               {
+//                 data: {
+//                   author: authorData,
+//                   title: titleData,
+//                   created: createdData,
+//                   selftext: selftextData,
+//                 }
+//               }
+//             ]
+//           }
+//         },
+//         {
+//           data: {
+//             children: childrenData,
+//           }
+//         },
+//       ]}) => {
+//       const dataComments = childrenData.map((item) => item.data);
+//       dataComments.splice(dataComments.length - 1, dataComments.length);
+//       const dataPost = {authorData, titleData, createdData, selftextData};
+//       return (
+//         dispatch(commentsSlice.actions.commentsDataRequestSuccess({dataComments, dataPost}))
+//       );
+//     })
+//     .catch(error => {
+//       dispatch(commentsSlice.actions.commentsDataRequestError(error.toString()));
+//     });
+// };
 
-export const commentsDataRequestSuccess = (dataComments, dataPost) => ({
-  type: COMMENTS_DATA_SUCCESS,
-  dataComments,
-  dataPost
-});
-
-export const commentsDataRequestError = (error) => ({
-  type: COMMENTS_DATA_ERROR,
-  error,
-});
-
-export const commentsDataRequestAsing = (id) => (dispatch, getState) => {
-  const token = getState().tokenReducer.token;
-  if (!token) return;
-  dispatch(commentsDataRequest());
-  axios(`${URL_API}/comments/${id}`, {
-    headers: {
-      Authorization: `bearer ${token}`,
-    },
-  })
-    .then((posts) => {
-      return posts;
+export const commentsDataRequestAsing = createAsyncThunk(
+  'comments/feth',
+  (id, {getState}) => {
+    const token = getState().tokenReducer.token;
+    if (!token) return;
+    // dispatch(commentsSlice.actions.commentsDataRequest());
+    return axios(`${URL_API}/comments/${id}`, {
+      headers: {
+        Authorization: `bearer ${token}`,
+      },
     })
-    .then(({data:
-      [
-        {
-          data: {
-            children: [
-              {
-                data: {
-                  author: authorData,
-                  title: titleData,
-                  created: createdData,
-                  selftext: selftextData,
+      .then((posts) => {
+        return posts;
+      })
+      .then(({data:
+        [
+          {
+            data: {
+              children: [
+                {
+                  data: {
+                    author: authorData,
+                    title: titleData,
+                    created: createdData,
+                    selftext: selftextData,
+                  }
                 }
-              }
-            ]
-          }
-        },
-        {
-          data: {
-            children: childrenData,
-          }
-        },
-      ]}) => {
-      const dataComments = childrenData.map((item) => item.data);
-      dataComments.splice(dataComments.length - 1, dataComments.length);
-      const dataPost = {authorData, titleData, createdData, selftextData};
-      return (
-        dispatch(commentsDataRequestSuccess(dataComments, dataPost))
-      );
-    })
-    .catch(err => {
-      dispatch(commentsDataRequestError(err.toString()));
-    });
-};
+              ]
+            }
+          },
+          {
+            data: {
+              children: childrenData,
+            }
+          },
+        ]}) => {
+        const dataComments = childrenData.map((item) => item.data);
+        dataComments.splice(dataComments.length - 1, dataComments.length);
+        const dataPost = {authorData, titleData, createdData, selftextData};
+        // return (
+        //   dispatch(commentsSlice.actions.commentsDataRequestSuccess({dataComments, dataPost}))
+        // );
+        return {dataComments, dataPost};
+      })
+      // .catch(error => {
+      //   dispatch(commentsSlice.actions.commentsDataRequestError(error.toString()));
+      // });
+      .catch(error => ({error: error.toString()}));
+  },
+);

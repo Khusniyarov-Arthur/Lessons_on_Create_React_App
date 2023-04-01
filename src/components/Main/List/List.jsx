@@ -20,6 +20,7 @@ export const List = () => {
     const observer = new IntersectionObserver((entries) => {
       if (entries[0].isIntersecting) {
         dispatch(postRequestAsing());
+        console.log('add posts');
       }
     }, {
       rootMargin: '100px',
