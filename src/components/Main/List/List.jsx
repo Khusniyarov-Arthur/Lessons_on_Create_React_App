@@ -10,17 +10,18 @@ export const List = () => {
   const endList = useRef(null);
   const dispatch = useDispatch();
   const {page} = useParams();
-  console.log('page: ', page);
+  // console.log('page: ', page);
 
   useEffect(() => {
     dispatch(postRequestAsing(page));
   }, [page]);
 
   useEffect(() => {
+    if (!posts.length) return;
     const observer = new IntersectionObserver((entries) => {
       if (entries[0].isIntersecting) {
         dispatch(postRequestAsing());
-        console.log('add posts');
+        console.log(1000000);
       }
     }, {
       rootMargin: '100px',
