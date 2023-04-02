@@ -8,43 +8,12 @@ const initialState = {
   after: '',
   isLast: false,
   page: '',
-  jopa: 'jopa'
 };
-
 
 export const postSlice = createSlice({
   name: 'postReducer',
   initialState,
-  reducers: {
-    // postRequest: (state) => {
-    //   state.error = '';
-    //   state.loading = true;
-    // },
-    // postRequestSuccess: (state, action) => {
-    //   state.loading = false;
-    //   state.data = action.payload.data;
-    //   state.error = '';
-    //   state.after = action.payload.after;
-    //   state.isLast = !action.payload.after;
-    // },
-    // postRequestError: (state, action) => {
-    //   state.loading = false;
-    //   state.error = action.payload.error;
-    // },
-
-    // changePage: (state, action) => {
-    //   state.page = action.payload.page;
-    //   state.after = '';
-    //   state.isLast = false;
-    // },
-
-    // postRequestSuccessAfter: (state, action) => {
-    //   state.loading = false;
-    //   state.data = [...state.data, ...action.payload.data];
-    //   state.error = '';
-    //   state.after = action.payload.after;
-    // }
-  },
+  reducers: {},
   extraReducers: {
     [postRequestAsing.pending.type]: (state) => {
       state.error = '';
@@ -59,13 +28,6 @@ export const postSlice = createSlice({
       state.isLast = !action.payload.after;
       state.page = action.payload.page;
     },
-
-    // [postRequestAsing.fulfilled.type]: (state, action) => {
-    //   state.loading = false;
-    //   state.data = [...state.data, ...action.payload.data];
-    //   state.error = '';
-    //   state.after = action.payload.after;
-    // },
 
     [postRequestAsing.rejected.type]: (state, action) => {
       state.loading = false;
