@@ -5,15 +5,21 @@ import {useDispatch, useSelector} from 'react-redux';
 import {postRequestAsing} from '../../../store/post/postAction';
 import {Outlet, useParams} from 'react-router-dom';
 import {Text} from '../../../UI/Text';
+import {searchRequestCleaner} from '../../../store/search/searchAction';
 
 export const List = () => {
   const posts = useSelector(state => state.postReducer.data);
+  // const searchPosts = useSelector(state => state.searchReducer.data);
+  const searchData = useSelector(state => state.searchReducer.data);
   const loading = useSelector(state => state.postReducer.loading);
   const endList = useRef(null);
   const dispatch = useDispatch();
   const {page} = useParams();
 
   useEffect(() => {
+    if (searchData.length > 0) {
+      dispatch(searchRequestCleaner());
+    }
     dispatch(postRequestAsing(page));
   }, [page]);
 
